@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './Images/Logo_grey_border.png';
 import './App.css';
 import icon from './Images/Plate_logo_icon.png';
-import 
 
 
 class App extends Component {
