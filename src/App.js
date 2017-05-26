@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './Images/Logo_grey_border.png';
 import './App.css';
 import icon from './Images/Plate_logo_icon.png';
-import 
+import fb from 'react-icons/lib/md/golf-course'
+import twitter from 'react-icons/lib/fa/twitter';
+
 
 
 class App extends Component {
@@ -13,12 +15,14 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
         
+
+
+        <p className="SocialMedia">
+            Hello World<fb />
+        </p>
+
         <div className="iconArea">
           <img src={icon} className="App-icon" alt="icon"/>
-        </div>
-
-        <div className="SocialMedia">
-          <ul></ul>
         </div>
 
       </div>
