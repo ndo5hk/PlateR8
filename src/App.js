@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import logo from './Images/Logo_grey_border.png';
 import './App.css';
 import icon from './Images/Plate_logo_icon.png';
-import fb from 'react-icons/lib/md/golf-course'
-import twitter from 'react-icons/lib/fa/twitter';
 
+import Language from 'react-icons/lib/md/language'
+import Star from 'react-icons/lib/md/star'
 
 
 class App extends Component {
@@ -17,12 +17,13 @@ class App extends Component {
         
 
 
-        <p className="SocialMedia">
-            Hello World<fb />
-        </p>
+       <div className="SocialMedia">
+            <Language/><t/><Star/>
+
+       </div>
 
         <div className="iconArea">
-          <img src={icon} className="App-icon" alt="icon"/>
+
         </div>
 
       </div>
