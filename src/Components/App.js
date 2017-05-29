@@ -23,7 +23,7 @@ class App extends Component {
        </div>
 
         <div className="iconArea">
-
+          <icon/>
         </div>
 
       </div>
