@@ -1,39 +1,20 @@
-import React, { Component } from "react";
-import {
-  Router,
-  Route,
-  Link,
-  IndexRoute,
-  hashHistory,
-  browserHistory
-} from "react-router";
-import logo from "./Images/Logo_grey_border.png";
-import "./App.css";
-import icon from "./Images/Plate_logo_icon.png";
-
-import Language from "react-icons/lib/md/language";
-import Star from "react-icons/lib/md/star";
-
-class App extends Component {
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import ClickMePage from "./clickMe";
+import HomePage from "./home";
+class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <Router>
+        <div className="routing-container">
+          <ul>
+            <li><Link to="/clickMe">Click Me</Link></li>
+          </ul>
+          <Route exact path="/clickMe" component={ClickMePage} />
         </div>
-
-        <div className="SocialMedia">
-          <Language /><t /><Star />
-
-        </div>
-
-        <div className="iconArea">
-          <icon />
-        </div>
-
-      </div>
+      </Router>
     );
   }
 }
-
 export default App;
