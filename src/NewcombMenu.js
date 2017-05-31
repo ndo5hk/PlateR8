@@ -1,18 +1,41 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from "material-ui/Card";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import FlatButton from "material-ui/FlatButton";
+import { List, ListItem } from "material-ui/List";
+import ContentInbox from "material-ui/svg-icons/content/inbox";
+import Rating from "react-rating";
 
 class NewcombMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      breakfastRating: 0,
+      lunchRating: 0,
+      dinnerRating: 0
+    };
+  }
+
+  handleRate = rate => {
+    console.log(rate);
+  };
+
   render() {
-    return <p>This is our Newcomb Menu </p>;
+    return (
+      <MuiThemeProvider>
+        <div>
+          <List>
+            <ListItem primaryText="Breakfast" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
+
+            <ListItem primaryText="Lunch" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
+
+            <ListItem primaryText="Dinner" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
+
+          </List>
+        </div>
+      </MuiThemeProvider>
+    );
   }
 }
 
