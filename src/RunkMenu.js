@@ -1,27 +1,32 @@
-
-import React, { Component } from 'react';
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from "material-ui/Card";
+import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import FlatButton from "material-ui/FlatButton";
-
-
+import { List, ListItem } from "material-ui/List";
+import ContentInbox from "material-ui/svg-icons/content/inbox";
+import Rating from "react-rating";
 
 class RunkMenu extends Component {
+  handleRate = rate => {
+    console.log(rate);
+  };
+  render() {
+    return (
+      <MuiThemeProvider>
+        <div>
+          <List>
+            <ListItem primaryText="Breakfast" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
 
-render(){
+            <ListItem primaryText="Lunch" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
 
-    return(
-        <p>This is our Runk Menu </p>
-    )
+            <ListItem primaryText="Dinner" leftIcon={<ContentInbox />} />
+            <Rating onClick={rate => this.handleRate(rate)} />
 
-}
+          </List>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
 }
 
 export default RunkMenu;
