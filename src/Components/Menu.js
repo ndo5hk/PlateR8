@@ -10,8 +10,21 @@ import {
   CardText
 } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
+import {
+  Router,
+  Route,
+  Link,
+  IndexRoute,
+  hashHistory,
+  browserHistory
+} from "react-router";
 
 injectTapEventPlugin();
+
+var testFunction = () => {
+  console.log("ran");
+  return <p>Hi</p>;
+};
 
 const MyAwesomeReactComponent = () => (
   <Card>
@@ -22,17 +35,31 @@ const MyAwesomeReactComponent = () => (
     />
 
     <CardActions>
-      <FlatButton label="Runk" />
+      <FlatButton onClick={this.testFunction} label="Runk" />
       <FlatButton label="O'Hill" />
       <FlatButton label="Newcomb Hall" />
     </CardActions>
   </Card>
 );
 
-const Menu = () => (
-  <MuiThemeProvider>
-    <MyAwesomeReactComponent />
-  </MuiThemeProvider>
-);
+const Menu = React.createClass({
+  propTypes: {
+    isClicked: true,
+    numClicks: 0
+  },
+  getDefaultProps() {
+    return {
+      isClicked: false,
+      numClicks: 0
+    };
+  },
+  render() {
+    return (
+      <MuiThemeProvider>
+        <MyAwesomeReactComponent />
+      </MuiThemeProvider>
+    );
+  }
+});
 
 export default Menu;

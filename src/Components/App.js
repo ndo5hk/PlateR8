@@ -1,11 +1,18 @@
-import React, { Component } from 'react';
-import logo from './Images/Logo_grey_border.png';
-import './App.css';
-import icon from './Images/Plate_logo_icon.png';
+import React, { Component } from "react";
+import {
+  Router,
+  Route,
+  Link,
+  IndexRoute,
+  hashHistory,
+  browserHistory
+} from "react-router";
+import logo from "./Images/Logo_grey_border.png";
+import "./App.css";
+import icon from "./Images/Plate_logo_icon.png";
 
-import Language from 'react-icons/lib/md/language'
-import Star from 'react-icons/lib/md/star'
-
+import Language from "react-icons/lib/md/language";
+import Star from "react-icons/lib/md/star";
 
 class App extends Component {
   render() {
@@ -14,16 +21,14 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </div>
-        
 
+        <div className="SocialMedia">
+          <Language /><t /><Star />
 
-       <div className="SocialMedia">
-            <Language/><t/><Star/>
-
-       </div>
+        </div>
 
         <div className="iconArea">
-          <icon/>
+          <icon />
         </div>
 
       </div>
