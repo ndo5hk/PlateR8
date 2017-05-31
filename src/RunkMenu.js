@@ -5,6 +5,15 @@ import ContentInbox from "material-ui/svg-icons/content/inbox";
 import Rating from "react-rating";
 
 class RunkMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      breakfastRating: 0,
+      lunchRating: 0,
+      dinnerRating: 0
+    };
+  }
+
   handleRate = rate => {
     console.log(rate);
   };

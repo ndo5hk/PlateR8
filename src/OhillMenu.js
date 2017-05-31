@@ -6,9 +6,19 @@ import Rating from "react-rating";
 import "./App.css";
 
 class OhillMenu extends Component {
-  handleRate = rate => {
+  constructor(props) {
+    super(props);
+    this.state = {
+      breakfastRating: 0,
+      lunchRating: 0,
+      dinnerRating: 0
+    };
+  }
+
+  handleRate = (primaryText, rate) => {
     console.log(rate);
   };
+
   render() {
     return (
       <MuiThemeProvider>
