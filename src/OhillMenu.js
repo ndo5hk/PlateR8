@@ -15,7 +15,15 @@ class OhillMenu extends Component {
     };
   }
 
-  handleRate = (primaryText, rate) => {
+  handleBreakfast = rate => {
+    console.log(rate);
+  };
+
+  handleLunch = rate => {
+    console.log(rate);
+  };
+
+  handleDinner = rate => {
     console.log(rate);
   };
 
@@ -25,13 +33,13 @@ class OhillMenu extends Component {
         <div>
           <List className="menuItems">
             <ListItem primaryText="Breakfast" leftIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onChange={rate => this.handleBreakfast(rate)} />
 
             <ListItem primaryText="Lunch" leftIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onChange={rate => this.handleLunch(rate)} />
 
             <ListItem primaryText="Dinner" rightIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onChange={rate => this.handleDinner(rate)} />
 
           </List>
 
