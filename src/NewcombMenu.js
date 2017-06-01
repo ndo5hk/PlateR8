@@ -14,8 +14,16 @@ class NewcombMenu extends Component {
     };
   }
 
-  handleRate = rate => {
-    console.log(rate);
+  handleBreakfast = rate => {
+    console.log({ rate });
+  };
+
+  handleLunch = rate => {
+    console.log({ rate });
+  };
+
+  handleDinner = rate => {
+    console.log({ rate });
   };
 
   render() {
@@ -24,13 +32,13 @@ class NewcombMenu extends Component {
         <div>
           <List>
             <ListItem primaryText="Breakfast" leftIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onClick={rate => this.handleBreakfast(rate)} />
 
             <ListItem primaryText="Lunch" leftIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onClick={rate => this.handleLunch(rate)} />
 
             <ListItem primaryText="Dinner" leftIcon={<ContentInbox />} />
-            <Rating onClick={rate => this.handleRate(rate)} />
+            <Rating onClick={rate => this.handleDinner(rate)} />
 
           </List>
         </div>

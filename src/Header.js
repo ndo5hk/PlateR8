@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
-import logo from './Images/Logo_grey_border.png';
-import './App.css';
-import RaisedButton from 'material-ui/'
-import fb from 'react-icons/lib/md/golf-course'
-import twitter from 'react-icons/lib/fa/twitter';
-import icon from './Images/Plate_logo_icon.png';
-
+import React, { Component } from "react";
+import logo from "./Images/Logo_grey_border.png";
+import "./App.css";
 
 class Header extends Component {
-
   render() {
     return (
       <div className="App">
@@ -19,6 +13,5 @@ class Header extends Component {
     );
   }
 }
-
 
 export default Header;

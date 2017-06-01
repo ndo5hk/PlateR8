@@ -1,19 +1,8 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import ClickMePage from "./ClickMePage";
-import icon from "./Images/Plate_logo_icon.png";
-import {
-  Card,
-  CardActions,
-  CardHeader,
-  CardMedia,
-  CardTitle,
-  CardText
-} from "material-ui/Card";
+import { Link } from "react-router-dom";
+import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
-
-var testFunction = () => {};
 
 const MyAwesomeReactComponent = () => (
   <div>
@@ -42,17 +31,7 @@ const MyAwesomeReactComponent = () => (
   </div>
 );
 
-const Homepage = React.createClass({
-  propTypes: {
-    isClicked: true,
-    numClicks: 0
-  },
-  getDefaultProps() {
-    return {
-      isClicked: false,
-      numClicks: 0
-    };
-  },
+class Homepage extends React.Component {
   render() {
     return (
       <MuiThemeProvider>
@@ -60,6 +39,6 @@ const Homepage = React.createClass({
       </MuiThemeProvider>
     );
   }
-});
+}
 
 export default Homepage;
