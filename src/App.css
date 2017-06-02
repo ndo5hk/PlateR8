@@ -1,33 +1,29 @@
-.App {
-  text-align: center;
-}
-
-.App-SocialMedia{
-  height:20px;
-  color:orange;
-  position: relative;
-  top: 300px;
-
-}
-
-.App-icon{
+/*.App-icon{
   position:relative;
   top:100px;
-}
+}*/
 
 .MenuItems{
   color:blue;
 }
 
 .App-logo {
-  position: relative;
+  display:block;
+  margin:auto;
   height: 80px;
+  align-items:center;
+}
+
+.ClickMeText {
+  text-align: center;
 }
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 85px;
   padding: 20px;
+  align-items:center;
+
 }
 
 .App-intro {
