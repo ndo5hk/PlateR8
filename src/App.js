@@ -52,7 +52,7 @@ class App extends Component {
   };
 
   //Adding an entee rating to the ratings list upon submit
-  addEntry(dining_hall, list) {
+  addEntry = (dining_hall, list) => {
     //creating a dummy entry
     console.log(dining_hall);
     console.log(list);
@@ -105,10 +105,8 @@ class App extends Component {
             <Route exact path="/" component={ClickMePage} />
             <Route exact path="/HomePage" component={HomePage} />
             <Route exact path="/HomePageRunk" component={HomePage} />
-            <Route
-              exact
-              path="/HomePageRunk"
-              component={
+            <Route exact path="/HomePageRunk"
+              component={() =>
                 <DiningHall
                   name="Runk"
                   ratings={this.state.Runk}
@@ -122,13 +120,13 @@ class App extends Component {
             <Route
               exact
               path="/HomePageOhill"
-              component={
+              component={() =>
                 <DiningHall
                   name="OHill"
                   ratings={this.state.OHill}
-                  addEntry={this.addEntry}
-                  handleRateChange={this.handleRateChange}
-                  handleNameChange={this.handleNameChange}
+                  addEntry={addEntry}
+                  handleRateChange={handleRateChange}
+                  handleNameChange={handleNameChange}
                 />
               }
             />
@@ -136,13 +134,13 @@ class App extends Component {
             <Route
               exact
               path="/HomePageNewcomb"
-              component={
+              component={ () =>
                 <DiningHall
                   name="Newcomb"
                   ratings={this.state.Newcomb}
-                  addEntry={this.addEntry}
-                  handleRateChange={this.handleRateChange}
-                  handleNameChange={this.handleNameChange}
+                  addEntry={addEntry}
+                  handleRateChange={handleRateChange}
+                  handleNameChange={handleNameChange}
                 />
               }
             />

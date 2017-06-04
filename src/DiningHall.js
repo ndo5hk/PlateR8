@@ -7,6 +7,7 @@ import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 
 class DiningHall extends React.Component {
+
   render() {
     const name = this.props.name;
     const ratings = this.props.ratings;
@@ -16,7 +17,7 @@ class DiningHall extends React.Component {
 
           <h3> {this.props.name} </h3>
           <table>
-            {this.props.map(ratings => <tr key={ratings.itemMealName} />)}
+            {ratings.map((rating) => <tr key={rating.tempMealName} />)}
           </table>
 
           <TextField
