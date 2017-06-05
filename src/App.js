@@ -7,17 +7,15 @@ import "./App.css";
 import * as firebase from "firebase";
 import DiningHall from "./DiningHall.js";
 
-var config = {
-  apiKey: "AIzaSyAQkS6_tXFP_mVySsyFHRs_qZVidks5RMc",
-  authDomain: "plater8-a97d6.firebaseapp.com",
-  databaseURL: "https://plater8-a97d6.firebaseio.com",
-  projectId: "plater8-a97d6",
-  storageBucket: "plater8-a97d6.appspot.com",
-  messagingSenderId: "205104310044"
-};
-
-//Initializing firebase.
-firebase.initializeApp(config);
+ var config = {
+    apiKey: "AIzaSyCxCiyNmqBqvzmdV4bLCdoyGCequElpY1U",
+    authDomain: "plater8-ba3b1.firebaseapp.com",
+    databaseURL: "https://plater8-ba3b1.firebaseio.com",
+    projectId: "plater8-ba3b1",
+    storageBucket: "plater8-ba3b1.appspot.com",
+    messagingSenderId: "857474503510"
+  };
+  firebase.initializeApp(config);
 
 //var database = firebase.database();
 var firebaseRunk = firebase.database().ref("Runk");
@@ -44,7 +42,7 @@ class App extends Component {
       itemMealName: e.target.value
     });
   };
-  
+
   //update state with entree rating in real time
   handleRateChange = rate => {
     this.setState({
@@ -97,8 +95,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.itemMealName);
-    console.log(this.state.itemMealRating);
     return (
       <Router>
         <div className="App">
