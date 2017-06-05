@@ -8,12 +8,12 @@ import * as firebase from "firebase";
 import DiningHall from "./DiningHall.js";
 
  var config = {
-    apiKey: "AIzaSyCxCiyNmqBqvzmdV4bLCdoyGCequElpY1U",
-    authDomain: "plater8-ba3b1.firebaseapp.com",
-    databaseURL: "https://plater8-ba3b1.firebaseio.com",
-    projectId: "plater8-ba3b1",
-    storageBucket: "plater8-ba3b1.appspot.com",
-    messagingSenderId: "857474503510"
+    apiKey: "AIzaSyBGTV-3vEBfpQzbB01f3cICfn1N2JLRpn4",
+    authDomain: "plater8-final.firebaseapp.com",
+    databaseURL: "https://plater8-final.firebaseio.com",
+    projectId: "plater8-final",
+    storageBucket: "plater8-final.appspot.com",
+    messagingSenderId: "916035618490"
   };
   firebase.initializeApp(config);
 
