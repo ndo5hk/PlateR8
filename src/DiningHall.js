@@ -1,23 +1,45 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
-import ContentInbox from "material-ui/svg-icons/content/inbox";
+//import ContentInbox from "material-ui/svg-icons/content/inbox";
 import Rating from "react-rating";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentAdd from "material-ui/svg-icons/content/add";
 
-class DiningHall extends React.Component {
+class DiningHall extends Component {
 
   render() {
     const name = this.props.name;
     const ratings = this.props.ratings;
+    //console.log(ratings);
     return (
       <div>
-        <MuiThemeProvider>
 
-          <h3> {this.props.name} </h3>
-          <table>
-            {ratings.map((rating) => <tr key={rating.tempMealName} />)}
+
+        <h3> {name} </h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>Entree</th>
+              <th>Rating</th>
+            </tr>
+            <tr>
+              <td>{}</td>
+              <td>$100</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    );
+  }
+}
+
+export default DiningHall;
+/*
+ <table>
+            {ratings.map(rating => <tr key={rating.tempMealName} />)}
           </table>
 
           <TextField
@@ -29,11 +51,4 @@ class DiningHall extends React.Component {
           <FloatingActionButton onTouchTap={this.props.addEntry(name, ratings)}>
             <ContentAdd />
           </FloatingActionButton>
-
-        </MuiThemeProvider>
-      </div>
-    );
-  }
-}
-
-export default DiningHall;
+          */

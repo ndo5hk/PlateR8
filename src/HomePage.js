@@ -32,7 +32,7 @@ const MyAwesomeReactComponent = () => (
   </div>
 );
 
-class Homepage extends React.Component {
+class Homepage extends Component {
   render() {
     return (
       <MuiThemeProvider>

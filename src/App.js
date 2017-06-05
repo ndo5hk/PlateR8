@@ -54,8 +54,6 @@ class App extends Component {
   //Adding an entee rating to the ratings list upon submit
   addEntry = (dining_hall, list) => {
     //creating a dummy entry
-    console.log(dining_hall);
-    console.log(list);
     var current_entry = {
       tempMealName: this.state.itemMealName,
       tempMealRating: this.state.itemMealRating
@@ -110,9 +108,9 @@ class App extends Component {
                 <DiningHall
                   name="Runk"
                   ratings={this.state.Runk}
-                  addEntry={this.addEntry}
-                  handleRateChange={this.handleRateChange}
-                  handleNameChange={this.handleNameChange}
+                  addEntry={() =>this.addEntry}
+                  handleRateChange={() =>this.handleRateChange}
+                  handleNameChange={() =>this.handleNameChange}
                 />
               }
             />
@@ -124,9 +122,9 @@ class App extends Component {
                 <DiningHall
                   name="OHill"
                   ratings={this.state.OHill}
-                  addEntry={addEntry}
-                  handleRateChange={handleRateChange}
-                  handleNameChange={handleNameChange}
+                  addEntry={() =>this.addEntry}
+                  handleRateChange={() =>this.handleRateChange}
+                  handleNameChange={() =>this.handleNameChange}
                 />
               }
             />
@@ -138,9 +136,9 @@ class App extends Component {
                 <DiningHall
                   name="Newcomb"
                   ratings={this.state.Newcomb}
-                  addEntry={addEntry}
-                  handleRateChange={handleRateChange}
-                  handleNameChange={handleNameChange}
+                  addEntry={() =>this.addEntry}
+                  handleRateChange={() =>this.handleRateChange}
+                  handleNameChange={() =>this.handleNameChange}
                 />
               }
             />
