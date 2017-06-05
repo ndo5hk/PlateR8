@@ -4,25 +4,26 @@ import { Link } from "react-router-dom";
 import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
+
 const MyAwesomeReactComponent = () => (
   <div>
     <Card>
       <CardMedia />
       <CardTitle
         title="Dining Halls"
-        subtitle="Pick a Dining Hall to View its menu for today"
+        subtitle="SELECT A DINING HALL TO SEE WHAT'S BEING SERVED!"
       />
 
       <CardActions>
-        <Link to="./HomePageRunk">
+        <Link to="/HomePageRunk">
           <FlatButton label="Runk" />
         </Link>
 
-        <Link to="./HomePageOhill">
-          <FlatButton label="O'Hill" />
+        <Link to="/HomePageOhill">
+          <FlatButton label="OHill" />
         </Link>
 
-        <Link to="./HomePageNewcomb">
+        <Link to="/HomePageNewcomb">
           <FlatButton label="Newcomb Hall" />
         </Link>
 
@@ -31,7 +32,7 @@ const MyAwesomeReactComponent = () => (
   </div>
 );
 
-class Homepage extends React.Component {
+class Homepage extends Component {
   render() {
     return (
       <MuiThemeProvider>
