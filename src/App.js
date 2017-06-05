@@ -24,6 +24,7 @@ var firebaseRunk = firebase.database().ref("Runk");
 var firebaseOHill = firebase.database().ref("Ohill");
 var firebaseNewcomb = firebase.database().ref("Newcomb");
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -95,6 +96,13 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.Runk);
+    var runk_entree_list = this.state.Runk.map(rating => rating.tempMealName.concat(runk_entree_list));
+    var ohill_entree_list = this.state.OHill.map(rating => rating.tempMealName.concat(ohill_entree_list));
+    var newcomb_entree_list = this.state.Newcomb.map(rating => rating.tempMealName.concat(newcomb_entree_list));
+    // var runk_rating_list = this.state.Runk.map(rating => rating.tempMealRating.concat(runk_rating_list));
+    // var ohill_rating_list = this.state.OHill.map(rating => rating.tempMealRating.concat(ohill_rating_list));
+    // var newcomb_rating_list = this.state.Newcomb.map(rating => rating.tempMealRating.concat(newcomb_rating_list));
     return (
       <Router>
         <div className="App">
@@ -108,6 +116,8 @@ class App extends Component {
                 <DiningHall
                   name="Runk"
                   ratings={this.state.Runk}
+                  entree_list={runk_entree_list}
+                  //rating_list={runk_rating_list}
                   addEntry={() =>this.addEntry}
                   handleRateChange={() =>this.handleRateChange}
                   handleNameChange={() =>this.handleNameChange}
@@ -122,6 +132,8 @@ class App extends Component {
                 <DiningHall
                   name="OHill"
                   ratings={this.state.OHill}
+                  entree_list={ohill_entree_list}
+                  //rating_list={ohill_rating_list}
                   addEntry={() =>this.addEntry}
                   handleRateChange={() =>this.handleRateChange}
                   handleNameChange={() =>this.handleNameChange}
@@ -136,6 +148,8 @@ class App extends Component {
                 <DiningHall
                   name="Newcomb"
                   ratings={this.state.Newcomb}
+                  entree_list={newcomb_entree_list}
+                  //rating_list={newcomb_rating_list}
                   addEntry={() =>this.addEntry}
                   handleRateChange={() =>this.handleRateChange}
                   handleNameChange={() =>this.handleNameChange}

@@ -23,10 +23,8 @@ class DiningHall extends Component {
               <th>Entree</th>
               <th>Rating</th>
             </tr>
-            <tr>
-              <td>{}</td>
+              {this.props.entree_list.map(entree => <tr><td>{entree}</td></tr>)}
               <td>$100</td>
-            </tr>
           </tbody>
         </table>
 
