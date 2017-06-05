@@ -11,24 +11,36 @@ class DiningHall extends Component {
   render() {
     const name = this.props.name;
     const ratings = this.props.ratings;
-    //console.log(ratings);
     return (
       <div>
-
-
         <h3> {name} </h3>
+        <div>
         <table>
           <tbody>
             <tr>
               <th>Entree</th>
               <th>Rating</th>
             </tr>
-              {this.props.entree_list.map(entree => <tr><td>{entree}</td></tr>)}
-              <td>$100</td>
+            {ratings.map(rating => <tr><td>{rating.tempMealName}</td><td>{rating.tempMealRating}</td></tr>)}
           </tbody>
         </table>
-
-
+        </div>
+        <MuiThemeProvider>
+          <div>
+          <div>
+            <TextField
+            hintText="Item Name"
+            onChange={e => this.props.handleNameChange(e)}
+          />
+          <Rating onChange={rate => this.props.handleRateChange(rate)} />
+          </div>
+        <div>
+          <FloatingActionButton onTouchTap={this.props.addEntry(this.props.name, this.props.ratings)}>
+            <ContentAdd />
+          </FloatingActionButton>
+        </div>
+        </div>
+        </MuiThemeProvider>
       </div>
     );
   }
@@ -49,4 +61,9 @@ export default DiningHall;
           <FloatingActionButton onTouchTap={this.props.addEntry(name, ratings)}>
             <ContentAdd />
           </FloatingActionButton>
+
+
+
+
+             {this.props.entree_list.map(entree => <tr><td>{entree}</td></tr>)}
           */
