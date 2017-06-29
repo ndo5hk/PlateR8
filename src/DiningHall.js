@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import TextField from "material-ui/TextField";
 import { Input, Button } from "antd";
+import StarRating from "react-star-rating-component";
 import { firebaseRunk, firebaseOHill, firebaseNewcomb } from "./firebase";
 import * as firebase from "firebase";
 import Rating from "react-rating";
@@ -16,7 +17,8 @@ class DiningHall extends Component {
       OHill: [],
       Newcomb: [],
       itemMealName: "",
-      itemMealRating: 0
+      itemMealRating: 0,
+      hover: 0
     };
   }
   //update state with entree name in real time
@@ -28,12 +30,19 @@ class DiningHall extends Component {
   };
 
   //update state with entree rating in real time
-  handleRateChange = e => {
+  // handleRateChange = e => {
+  //   this.setState({
+  //     ...this.state,
+  //     itemMealRating: e.target.value
+  //   });
+  // };
+
+  onStarClick(nextValue, prevValue, name) {
     this.setState({
       ...this.state,
-      itemMealRating: e.target.value
+      itemMealRating: nextValue
     });
-  };
+  }
 
   //Adding an entee rating to the ratings list upon submit
   addEntry = (dining_hall, list) => {
@@ -61,6 +70,7 @@ class DiningHall extends Component {
         ...this.state,
         itemMealName: "",
         itemMealRating: 0,
+        hover: 0,
         Runk: val || []
       });
     });
@@ -81,11 +91,13 @@ class DiningHall extends Component {
   }
 
   render() {
-    const name = this.props.name;
-    const ratings = this.state[name];
+    let diningHallName = this.props.diningHallName;
+    let ratings = this.state[diningHallName];
     return (
       <div>
-        <h3> {name} </h3>
+        <h3>
+          {" "}{diningHallName}{" "}
+        </h3>
         <div>
           <table>
             <tbody>
@@ -95,7 +107,17 @@ class DiningHall extends Component {
               </tr>
               {ratings.map(rating =>
                 <tr>
-                  <td>{rating.tempMealName}</td><td>{rating.tempMealRating}</td>
+                  <td>
+                    {rating.tempMealName}
+                  </td>
+                  <td>
+                    <StarRating
+                      name={rating.tempMealName}
+                      starCount={5}
+                      editing={false}
+                      value={rating.tempMealRating}
+                    />
+                  </td>
                 </tr>
               )}
             </tbody>
@@ -107,9 +129,11 @@ class DiningHall extends Component {
               placeholder="Entree Name"
               onChange={e => this.handleNameChange(e)}
             />
-            <Input
-              placeholder="Enter a rating from 1-5"
-              onChange={e => this.handleRateChange(e)}
+            <StarRating
+              name="Rating"
+              starCount={5}
+              value={this.state.itemMealRating}
+              onStarClick={this.onStarClick.bind(this)}
             />
           </div>
           <MuiThemeProvider>
@@ -117,7 +141,7 @@ class DiningHall extends Component {
               <div style={{ margin: "24px 0" }} />
               <Button
                 type="primary"
-                onClick={() => this.addEntry(name, ratings)}
+                onClick={() => this.addEntry(diningHallName, ratings)}
                 disabled={
                   this.state.itemMealName == "" ||
                   this.state.itemMealRating == ""

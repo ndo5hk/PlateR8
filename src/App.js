@@ -19,19 +19,19 @@ class App extends Component {
             <Route
               exact
               path="/HomePageRunk"
-              component={() => <DiningHall name="Runk" />}
+              component={() => <DiningHall diningHallName="Runk" />}
             />
             <Route exact path="/HomePageOhill" component={HomePage} />
             <Route
               exact
               path="/HomePageOhill"
-              component={() => <DiningHall name="OHill" />}
+              component={() => <DiningHall diningHallName="OHill" />}
             />
             <Route exact path="/HomePageNewcomb" component={HomePage} />
             <Route
               exact
               path="/HomePageNewcomb"
-              component={() => <DiningHall name="Newcomb" />}
+              component={() => <DiningHall diningHallName="Newcomb" />}
             />
           </div>
         </div>
