@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
 import FlatButton from "material-ui/FlatButton";
 
-
 const MyAwesomeReactComponent = () => (
   <div>
     <Card>
@@ -19,14 +18,13 @@ const MyAwesomeReactComponent = () => (
           <FlatButton label="Runk" />
         </Link>
 
-        <Link to="/HomePageOhill">
+        <Link to="/HomePageOHill">
           <FlatButton label="OHill" />
         </Link>
 
         <Link to="/HomePageNewcomb">
           <FlatButton label="Newcomb Hall" />
         </Link>
-
       </CardActions>
     </Card>
   </div>

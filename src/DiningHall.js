@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import { Card, CardActions, CardMedia, CardTitle } from "material-ui/Card";
 import TextField from "material-ui/TextField";
 import { Input, Button } from "antd";
 import { firebaseRunk, firebaseOHill, firebaseNewcomb } from "./firebase";
@@ -16,7 +17,8 @@ class DiningHall extends Component {
       OHill: [],
       Newcomb: [],
       itemMealName: "",
-      itemMealRating: 0
+      itemMealRating: 0,
+      sortedInfo: null
     };
   }
   //update state with entree name in real time
@@ -35,6 +37,43 @@ class DiningHall extends Component {
     });
   };
 
+  pullDiningHallData = e => {
+    var tempRunkInfo = [];
+    var tempOHillInfo = [];
+    var tempNewcombInfo = [];
+
+    firebaseRunk
+      .once("value", snapshot => {
+        tempRunkInfo = snapshot.val();
+      })
+      .then(() => {
+        this.setState({
+          ...this.state,
+          Runk: tempRunkInfo
+        });
+      });
+    firebaseOHill
+      .once("value", snapshot => {
+        tempOHillInfo = snapshot.val();
+      })
+      .then(() => {
+        this.setState({
+          ...this.state,
+          OHill: tempOHillInfo
+        });
+      });
+    firebaseNewcomb
+      .once("value", snapshot => {
+        tempNewcombInfo = snapshot.val();
+      })
+      .then(() => {
+        this.setState({
+          ...this.state,
+          Newcomb: tempNewcombInfo
+        });
+      });
+  };
+
   //Adding an entee rating to the ratings list upon submit
   addEntry = (dining_hall, list) => {
     //creating a dummy entry
@@ -50,39 +89,29 @@ class DiningHall extends Component {
       [dining_hall]: temporary_entries_list
     });
     //updating firebase
-    firebase.database().ref(dining_hall).set(temporary_entries_list);
+    firebase
+      .database()
+      .ref(dining_hall)
+      .set(temporary_entries_list);
+    this.pullDiningHallData();
   };
 
   //Retrieves current ratings list from Firebase
   componentWillMount() {
-    firebaseRunk.on("value", snapshot => {
-      const val = snapshot.val();
-      this.setState({
-        ...this.state,
-        itemMealName: "",
-        itemMealRating: 0,
-        Runk: val || []
-      });
-    });
-    firebaseOHill.on("value", snapshot => {
-      const val = snapshot.val();
-      this.setState({
-        ...this.state,
-        OHill: val || []
-      });
-    });
-    firebaseNewcomb.on("value", snapshot => {
-      const val = snapshot.val();
-      this.setState({
-        ...this.state,
-        Newcomb: val || []
-      });
-    });
+    // this.setState({
+    //   ...this.state,
+    //   Runk: RunkInfo,
+    //   OHill: OHillInfo,
+    //   Newcomb: NewcombInfo
+    // });
+    this.pullDiningHallData();
+    //console.log(this.state.Runk);
   }
 
   render() {
-    const name = this.props.name;
-    const ratings = this.state[name];
+    var name = this.props.name;
+    var ratings = this.state[name];
+
     return (
       <div>
         <h3> {name} </h3>
@@ -93,41 +122,45 @@ class DiningHall extends Component {
                 <th>Entree</th>
                 <th>Rating</th>
               </tr>
-              {ratings.map(rating =>
+              {ratings.map(rating => (
                 <tr>
-                  <td>{rating.tempMealName}</td><td>{rating.tempMealRating}</td>
+                  <td>{rating.tempMealName}</td>
+                  <td>{rating.tempMealRating}</td>
                 </tr>
-              )}
+              ))}
             </tbody>
           </table>
         </div>
-        <div>
-          <div>
-            <Input
-              placeholder="Entree Name"
-              onChange={e => this.handleNameChange(e)}
-            />
-            <Input
-              placeholder="Enter a rating from 1-5"
-              onChange={e => this.handleRateChange(e)}
-            />
+        <MuiThemeProvider>
+          <div className="DiningHallMeal">
+            <Card bordered={true} style={{ width: 400 }}>
+              <div>
+                <Input
+                  placeholder="Entree Name"
+                  onChange={e => this.handleNameChange(e)}
+                />
+                <Input
+                  placeholder="Enter a rating from 1-5"
+                  onChange={e => this.handleRateChange(e)}
+                />
+              </div>
+              <div>
+                <div style={{ margin: "24px 0" }} />
+                <Button
+                  type="primary"
+                  onClick={() => this.addEntry(name, ratings)}
+                  disabled={
+                    this.state.itemMealName == "" ||
+                    this.state.itemMealRating == ""
+                  }
+                >
+                  {" "}
+                  Submit{" "}
+                </Button>
+              </div>
+            </Card>
           </div>
-          <MuiThemeProvider>
-            <div>
-              <div style={{ margin: "24px 0" }} />
-              <Button
-                type="primary"
-                onClick={() => this.addEntry(name, ratings)}
-                disabled={
-                  this.state.itemMealName == "" ||
-                  this.state.itemMealRating == ""
-                }
-              >
-                {" "}Submit{" "}
-              </Button>
-            </div>
-          </MuiThemeProvider>
-        </div>
+        </MuiThemeProvider>
       </div>
     );
   }

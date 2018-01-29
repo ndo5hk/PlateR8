@@ -12,8 +12,9 @@ var config = {
 firebase.initializeApp(config);
 
 //var database = firebase.database();
+
 var firebaseRunk = firebase.database().ref("Runk");
-var firebaseOHill = firebase.database().ref("Ohill");
+var firebaseOHill = firebase.database().ref("OHill");
 var firebaseNewcomb = firebase.database().ref("Newcomb");
 
 export { firebaseRunk, firebaseOHill, firebaseNewcomb };

@@ -21,10 +21,10 @@ class App extends Component {
               path="/HomePageRunk"
               component={() => <DiningHall name="Runk" />}
             />
-            <Route exact path="/HomePageOhill" component={HomePage} />
+            <Route exact path="/HomePageOHill" component={HomePage} />
             <Route
               exact
-              path="/HomePageOhill"
+              path="/HomePageOHill"
               component={() => <DiningHall name="OHill" />}
             />
             <Route exact path="/HomePageNewcomb" component={HomePage} />
