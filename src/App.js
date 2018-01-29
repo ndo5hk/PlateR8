@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ClickMePage from "./ClickMePage";
 import HomePage from "./HomePage";
 import Header from "./Header";
 import React, { Component } from "react";
@@ -13,8 +12,7 @@ class App extends Component {
         <div className="App">
           <div className="iconArea">
             <Route exact path="" component={Header} />
-            <Route exact path="/" component={ClickMePage} />
-            <Route exact path="/HomePage" component={HomePage} />
+            <Route exact path="/" component={HomePage} />
             <Route exact path="/HomePageRunk" component={HomePage} />
             <Route
               exact
